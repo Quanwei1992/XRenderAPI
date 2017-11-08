@@ -6,6 +6,7 @@
 
 // the WindowProc function prototype
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+
 bool gQuit = false;
 int main(int argc, char** argv)
 {
@@ -40,7 +41,6 @@ int main(int argc, char** argv)
 
 	ShowWindow(hWnd, SW_SHOW);
 
-
 	// Message Loop
 	MSG msg;
 	while (!gQuit)
@@ -56,6 +56,7 @@ int main(int argc, char** argv)
 
 	return 0;
 }
+
 
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
