@@ -1,0 +1,52 @@
+{
+  "variant": {
+    "label": "Debug",
+    "keywordSettings": {
+      "buildType": "debug"
+    },
+    "description": "Emit debug information without performing optimizations"
+  },
+  "activeEnvironments": [],
+  "codeModel": {
+    "configurations": [
+      {
+        "name": "Debug",
+        "projects": [
+          {
+            "buildDirectory": "/Users/hisky/source/XRenderAPI/build",
+            "name": "XRender",
+            "sourceDirectory": "/Users/hisky/source/XRenderAPI",
+            "targets": [
+              {
+                "artifacts": [
+                  "/Users/hisky/source/XRenderAPI/build/Platform/OSX/osx_gl"
+                ],
+                "buildDirectory": "/Users/hisky/source/XRenderAPI/build/Platform/OSX",
+                "fileGroups": [
+                  {
+                    "compileFlags": "-g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=gnu++11",
+                    "isGenerated": false,
+                    "language": "CXX",
+                    "sources": [
+                      "main.mm"
+                    ]
+                  }
+                ],
+                "fullName": "osx_gl",
+                "linkLanguageFlags": "-g",
+                "linkLibraries": "-framework Cocoa",
+                "linkerLanguage": "CXX",
+                "name": "osx_gl",
+                "sourceDirectory": "/Users/hisky/source/XRenderAPI/Platform/OSX",
+                "type": "EXECUTABLE"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "cookie": "0.8995253081846821",
+    "inReplyTo": "codemodel",
+    "type": "reply"
+  }
+}
