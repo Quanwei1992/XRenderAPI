@@ -17,12 +17,8 @@
     
     GLView* view = [[GLView alloc ] initWithFrame:CGRectMake(0, 0, 800, 600)];
     
-    
-    // menu
- 
     _mWindow = [[NSWindow alloc] initWithContentRect:CGRectMake(0, 0, 800, 600) styleMask:style backing:NSBackingStoreBuffered defer:NO];
     [_mWindow setTitle:@"XRenderAPI OSX & OpenGL"];
-    //[_mWindow setBackgroundColor:[NSColor blackColor]];
     [_mWindow setContentView:view];
     [_mWindow makeKeyAndOrderFront:nil];
     

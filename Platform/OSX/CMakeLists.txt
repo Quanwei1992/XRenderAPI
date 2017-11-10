@@ -6,7 +6,6 @@ GLView.mm
 GLView.h
 )
 
-
 FIND_LIBRARY(COCOA_LIBRARY Cocoa)
 FIND_LIBRARY(OPENGL_LIBRARY OpenGL)
 target_link_libraries(osx_gl ${COCOA_LIBRARY} ${OPENGL_LIBRARY})
