@@ -1,19 +1,44 @@
+
 #import "AppDelegate.h"
-@implementation MyApplicationDelegate : NSObject
-- (id)init {
-    if (self = [super init]) {
-        // allocate and initialize window and stuff here ..
-    }
-    return self;
+#import "GLView.h"
+
+@interface AppDelegate ()
+
+@end
+
+@implementation AppDelegate
+
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+
+    NSInteger style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |
+    NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
+    
+    
+    GLView* view = [[GLView alloc ] initWithFrame:CGRectMake(0, 0, 800, 600)];
+    
+    
+    // menu
+ 
+    _mWindow = [[NSWindow alloc] initWithContentRect:CGRectMake(0, 0, 800, 600) styleMask:style backing:NSBackingStoreBuffered defer:NO];
+    [_mWindow setTitle:@"XRenderAPI OSX & OpenGL"];
+    //[_mWindow setBackgroundColor:[NSColor blackColor]];
+    [_mWindow setContentView:view];
+    [_mWindow makeKeyAndOrderFront:nil];
+    
+    [NSApp setDelegate:self];
 }
 
-- (void)applicationWillFinishLaunching:(NSNotification *)notification {
-    [window makeKeyAndOrderFront:self];
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
+{
+    return YES;
 }
 
-- (void)dealloc {
-    [window release];
-    [super dealloc];
+
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
+    // Insert code here to tear down your application
 }
+
 
 @end
