@@ -1,7 +1,10 @@
 
-if(WIN32)
+
+
+if(ANDROID)
+    add_subdirectory(Android)
+elseif(WIN32)
     add_subdirectory(Windows)
-endif()
-if(APPLE)
+elseif(APPLE)
     add_subdirectory(OSX)
 endif()
