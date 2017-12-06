@@ -76,17 +76,22 @@ def build_apk():
     os.system(cmd)
 
     # Step2 
-    #java -classpath {SDK}/tools/lib/sdklib.jar com.android.sdklib.build.ApkBuilderMain {BIN}}/bin/test_u.apk -u -z {BIN}}/bin/res.zip -rj {P}/libs
-    cmd = "java -classpath {0}/tools/lib/sdklib.jar com.android.sdklib.build.ApkBuilderMain {1}/bin/test_u.apk -u -z {1}/bin/res.zip -rj {1}/lib".format(ANDROID_SDK,project_path) 
+    #java -classpath {SDK}/tools/lib/sdklib.jar com.android.sdklib.build.ApkBuilderMain {BIN}}/bin/test_u.apk -u -z {BIN}}/bin/res.zip -nf {P}/lib
+    cmd = "java -classpath {0}/tools/lib/sdklib.jar com.android.sdklib.build.ApkBuilderMain {1}/bin/test_u.apk -u -z {1}/bin/res.zip -nf {1}/lib".format(ANDROID_SDK,project_path) 
     os.system(cmd)
 
     # Step3 sign
     # jarsigner -keystore {S}/key/test.keystore -storepass 666666 -keypass 666666 -signedjar {P}/test.apk {P}/bin/test_u.apk test.keystore
-    cmd = "jarsigner -keystore {0}/key/test.keystore -storepass 666666 -keypass 666666 -signedjar {1}/test.apk {1}/bin/test_u.apk test.keystore".format(src_path,project_path)
+    cmd = "jarsigner -keystore {0}/key/test.keystore -storepass 666666 -keypass 666666 -signedjar {1}/bin/test.apk {1}/bin/test_u.apk test.keystore".format(src_path,project_path)
     os.system(cmd)
 
+    # Step4 install
+    cmd = "adb install -r {0}/bin/test.apk".format(project_path)
+    os.system(cmd)
+    # Step5 launch
+
 make_native_lib("armeabi")
-make_native_lib("armeabi-v7a")
+#make_native_lib("armeabi-v7a")
 
 build_apk()
 
